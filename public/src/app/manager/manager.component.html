@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+      <button type="link" [routerLink]="['/new']">Add New Product</button>
+      <table class="table">
+          <thead class="thead-secondary">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>       
+            <tbody *ngFor="let manager of managers">
+              <tr>
+                <td>{{ manager._id }}</td>
+                <td>{{ manager.name }}</td>
+                <td>{{ manager.qty }}</td>
+                <td>${{ manager.price }}</td>
+                <td><button [routerLink]="[manager['_id'],'edit']">Edit</button><button [routerLink]="[manager['_id']]">Details</button></td>
+              </tr>
+            </tbody>          
+        </table>
+      </div>
+      <router-outlet></router-outlet>
+    </div>

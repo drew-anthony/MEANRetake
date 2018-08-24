@@ -1,0 +1,30 @@
+<div class="col-4">
+    <form (submit)="modManager()">
+      <h3>Update Product</h3>
+      <hr class="my-4">
+      <label>Name:
+        <input type="text" class="form-control" required minlength="3" maxlength="50" name="getManager.name" [(ngModel)]="getManager.name" #name='ngModel'>
+        <p *ngIf="name.errors"> Name field required</p >
+      </label>
+      <br>
+      <br>
+      <label>Qty:
+        <input type="number" class="form-control" min="0" required name="getManager.qty" [(ngModel)]="getManager.qty" #qty='ngModel'>
+        <p *ngIf="qty.errors"> Qty field required to be equal to or greater than 0</p >
+      </label>
+      <br>
+      <br>
+      <label>Price:
+        <input type="number" class="form-control" min="0" required name="getManager.price" [(ngModel)]="getManager.price" #price='ngModel'>
+        <p *ngIf="price.errors"> Price field required</p >
+      </label>
+      <div *ngIf="!name.errors && !qty.errors && !price.errors">
+      <button type="submit">Update</button>
+    </div>
+    <hr class="my-4">
+      <input type="button" value="Reset Form" onClick="this.form.reset()" />
+    </form>
+    <hr class="my-4">
+      <button [routerLink]="['/']">Back</button>
+      
+  </div>

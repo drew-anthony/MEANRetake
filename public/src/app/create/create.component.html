@@ -1,0 +1,27 @@
+<div class="container">
+    <h5>New Product</h5>
+    <hr>
+    <form action="" (submit)="addManager()">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" required minlength="3" maxlength="30" name="createManager.name" [(ngModel)]="createManager.name" #name="ngModel"></td>
+        <p *ngIf="name.errors"> Name Required</p>
+      </tr>
+      <tr>
+        <td>Qty:</td>
+        <td><input type="number" min="0" required name="createManager.qty" [(ngModel)]="createManager.qty" #qty="ngModel"></td>
+        <p *ngIf="qty.errors"> Type Required</p>
+      </tr>
+      <tr>
+        <td>Price:</td>
+        <td><input type="text" min="0" required name="createManager.price" [(ngModel)]="createManager.price" #price="ngModel"></td>
+        <p *ngIf="price.errors"> Price Required</p>
+      </tr>
+      <tr *ngIf="!name.errors && !qty.errors && !price.errors">
+        <td><button class="btn btn-success" type="submit">Create</button></td>
+      </tr>
+    </table>
+    <button [routerLink]="['/new']">Reset</button>
+    </form>
+</div>

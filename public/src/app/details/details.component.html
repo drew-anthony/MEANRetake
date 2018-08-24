@@ -1,0 +1,16 @@
+  <button [routerLink]="['/']">Back</button>
+  <h1>Product Details</h1>
+  <div class="jumbotron">
+    Name:
+    <h1>{{getManager.name}}</h1>
+    Qty:
+    <h3>{{getManager.qty}}</h3>
+    Price:
+    <p class="lead">${{getManager.price}}</p>
+    <hr class="my-4">
+    <tr *ngIf="getManager.qty==0">
+    <button class="btn btn-danger" [routerLink]="['/']" (click)="delManager(getManager._id)">Delete</button>
+    </tr>
+  </div>
+        
+        
